@@ -7,7 +7,7 @@ function results(playerSelection, computerSelection){
     
     if(playerSelection === "rock" && computerSelection === "scissors") {
 
-        resultDisplay.innerHTML = "You win! Rock beats scissors"
+        resultDisplay.innerHTML = "Computer picked SCISSORS. You WIN!"
     }
     else if(playerSelection === "rock" && computerSelection === "paper") {
         resultDisplay.innerHTML = "Computer picked PAPER! You LOSE!"    }
@@ -20,7 +20,7 @@ function results(playerSelection, computerSelection){
     else if(playerSelection === "scissors" && computerSelection === "paper") {
         resultDisplay.innerHTML = "Computer picked PAPER! You WIN!"    }
     else {
-        resultDisplay.innerHTML = "TIE!"    }
+        resultDisplay.innerHTML = "The Computer Picked The Same Choice. It's a TIE!"    }
 
 }
 
@@ -38,23 +38,26 @@ function pickAction(){
 }
 
 function resetResult(){
-    resultDisplay.innerHTML = "Click Play Game When Ready!"
+    resultDisplay.innerHTML = ""
 }
 
-function playGame(){
-    
-    
-    playerSelection = pickAction();
-    if(playerSelection != "rock" || playerSelection === "paper" || playerSelection === "scissors"){
-        alert("You didnt type your action or you mispelled it!")
-    }
-    else{
-    computerSelection = computerAction();
-    
+function rockChosen(){
+    playerSelection = "rock"
+    computerSelection = computerAction();  
     results(playerSelection, computerSelection)
-    }
+    
+}
+function paperChosen(){
+    playerSelection = "paper"
+    computerSelection = computerAction();  
+    results(playerSelection, computerSelection)
+    
+}
+function scissorsChosen(){
+    playerSelection = "scissors"
+    computerSelection = computerAction();  
+    results(playerSelection, computerSelection)
 
 }
-
 
 
