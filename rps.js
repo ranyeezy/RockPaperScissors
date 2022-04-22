@@ -1,30 +1,26 @@
 let playerSelection = "action";
 let computerSelection = "action";
 const computerActions = ["rock", "paper", "scissors"];
+const resultDisplay = document.querySelector('[data-game-results]')
 
 function results(playerSelection, computerSelection){
     
     if(playerSelection === "rock" && computerSelection === "scissors") {
-        return alert("You win! Rock beats scissors")
+
+        resultDisplay.innerHTML = "You win! Rock beats scissors"
     }
     else if(playerSelection === "rock" && computerSelection === "paper") {
-        return alert("You lose! Paper beats rock")
-    }
+        resultDisplay.innerHTML = "Computer picked PAPER! You LOSE!"    }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
-        return alert("You lose! Scissors beats paper")
-    }
+        resultDisplay.innerHTML = "Computer picked SCISSORS! You LOSE!"    }
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        return alert("You Win! Paper beats rock")
-    }
+        resultDisplay.innerHTML = "Computer picked ROCK! You WIN!"    }
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        return alert("You lose! Rock beats scissors")
-    }
+        resultDisplay.innerHTML = "Computer picked ROCK! You LOSE!"    }
     else if(playerSelection === "scissors" && computerSelection === "paper") {
-        return alert("You win! Scissors beats paper")
-    }
+        resultDisplay.innerHTML = "Computer picked PAPER! You WIN!"    }
     else {
-        return alert("Tie")
-    }
+        resultDisplay.innerHTML = "TIE!"    }
 
 }
 
@@ -41,8 +37,12 @@ function pickAction(){
     return playerSelection;
 }
 
+function resetResult(){
+    resultDisplay.innerHTML = "Click Play Game When Ready!"
+}
 
 function playGame(){
+    
     
     playerSelection = pickAction();
     if(playerSelection != "rock" || playerSelection === "paper" || playerSelection === "scissors"){
@@ -50,10 +50,11 @@ function playGame(){
     }
     else{
     computerSelection = computerAction();
-    alert("Computer picks " + computerSelection)
     
     results(playerSelection, computerSelection)
     }
 
 }
+
+
 
